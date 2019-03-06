@@ -6,6 +6,7 @@ void setup()
   pinMode(13, OUTPUT);
   
   Serial.begin(9600);
+  Serial.println("Anduino light sensing started\n");
 }
 
 void loop()
@@ -14,10 +15,12 @@ void loop()
   
   if(lightLevel < 30)
   {
+    digitalWrite(13, HIGH);
     Serial.println("LED on");
   }
   else
   {
+    digitalWrite(13, LOW);
     Serial.println("LED off");
   }
   
