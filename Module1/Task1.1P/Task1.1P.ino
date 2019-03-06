@@ -1,5 +1,6 @@
 int inputPin = A0;
 int lightLevel = 0;
+bool isDark = 0;
 
 void setup()
 {
@@ -15,11 +16,13 @@ void loop()
   
   if(lightLevel < 30)
   {
+    isDark = 1;
     digitalWrite(13, HIGH);
     Serial.println("LED on");
   }
   else
   {
+    isDark = 0;
     digitalWrite(13, LOW);
     Serial.println("LED off");
   }
