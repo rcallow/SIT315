@@ -1,9 +1,27 @@
-void setup() {
-  // put your setup code here, to run once:
+int inputPin = A0;
+int lightLevel = 0;
 
+void setup()
+{
+  pinMode(13, OUTPUT);
+  
+  Serial.begin(9600);
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
-
+void loop()
+{
+  lightLevel = analogRead(inputPin);
+  
+  if(lightLevel < 30)
+  {
+    Serial.println("LED on");
+  }
+  else
+  {
+    Serial.println("LED off");
+  }
+  
+  Serial.print("Current light level: ");
+  Serial.println(lightLevel);
+  delay(1000);
 }
