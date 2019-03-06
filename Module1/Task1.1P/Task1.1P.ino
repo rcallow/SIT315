@@ -17,12 +17,19 @@ void loop()
   if(lightLevel < 30)
   {
     isDark = 1;
+  }
+  else
+  {
+    isDark = 0;
+  }
+
+  if(isDark)
+  {
     digitalWrite(13, HIGH);
     Serial.println("LED on");
   }
   else
   {
-    isDark = 0;
     digitalWrite(13, LOW);
     Serial.println("LED off");
   }
