@@ -1,29 +1,20 @@
-int inputPin = A0;
-int lightLevel = 0;
-bool isDark = 0;
+int inputPin = 12;
+//int lightLevel = 0;
+bool isLevel = 0;
 
 void setup()
 {
   pinMode(13, OUTPUT);
-  
+  pinMode(12, INPUT);
   Serial.begin(9600);
   Serial.println("Anduino light sensing started\n");
 }
 
 void loop()
 {
-  lightLevel = analogRead(inputPin);
-  
-  if(lightLevel < 30)
-  {
-    isDark = 1;
-  }
-  else
-  {
-    isDark = 0;
-  }
+  isLevel = digitalRead(inputPin);
 
-  if(isDark)
+  if(isLevel)
   {
     digitalWrite(13, HIGH);
     Serial.println("LED on");
@@ -33,8 +24,13 @@ void loop()
     digitalWrite(13, LOW);
     Serial.println("LED off");
   }
-  
-  Serial.print("Current light level: ");
-  Serial.println(lightLevel);
+  if(isLevel)
+  {
+    Serial.print("Arduino is not tilted");
+  }
+  else
+  {
+    Serial.println("Arduino is tilted");
+  }
   delay(1000);
 }
