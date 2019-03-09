@@ -1,7 +1,5 @@
 int inputPin = 2;
-//int lightLevel = 0;
-bool isLevel = 0;
-volatile byte ledStatus = LOW;
+volatile bool isLevel = 0;
 
 void setup()
 {
@@ -16,10 +14,20 @@ void setup()
 
 void loop()
 {
-    digitalWrite(13, ledStatus);
+  if(isLevel)
+  {
+    digitalWrite(13, LOW);
+    Serial.println("Anduino is level");
+  }
+  else
+  {
+    digitalWrite(13, HIGH);
+    Serial.println("Anduino is tilted");
+  }
+    
 }
 
 void tiltResponse()
 {
-  ledStatus = !ledStatus;
+  isLevel = !isLevel;
 }
