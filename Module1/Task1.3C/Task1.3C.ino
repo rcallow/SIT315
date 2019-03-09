@@ -1,12 +1,14 @@
-int inputPin = 2;
+int tiltPinOne = 2;
+int tiltPinTwo = 3;
 volatile bool isLevel = 1;
 
 void setup()
 {
   pinMode(13, OUTPUT);
-  pinMode(inputPin, INPUT);
+  pinMode(tiltPinOne, INPUT);
   
-  attachInterrupt(digitalPinToInterrupt(inputPin), tiltResponse, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(tiltPinOne), tiltOneResponse, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(tiltPinTwo), tiltTwoResponse, CHANGE);
   
   Serial.begin(9600);
   Serial.println("Anduino tilt sensing started\n");
@@ -27,7 +29,12 @@ void loop()
   delay(1000);
 }
 
-void tiltResponse()
+void tiltOneResponse()
 {
-  isLevel = digitalRead(inputPin);
+  isLevel = digitalRead(tiltPinOne);
+}
+
+void tiltTwoResponse()
+{
+  isLevel = digitalRead(tiltPinTwo);
 }
