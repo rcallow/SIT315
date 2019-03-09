@@ -8,7 +8,7 @@ void setup()
   pinMode(13, OUTPUT);
   pinMode(inputPin, INPUT);
   
-  attachInterrupt(digitalPinToInterrupt(inputPin, tiltResponse, FALLING);
+  attachInterrupt(digitalPinToInterrupt(inputPin), tiltResponse, FALLING);
   
   Serial.begin(9600);
   Serial.println("Anduino tilt sensing started\n");
