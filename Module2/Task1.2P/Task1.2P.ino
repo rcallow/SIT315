@@ -1,5 +1,5 @@
 int inputPin = 2;
-volatile bool isLevel = 0;
+volatile bool isLevel = 1;
 
 void setup()
 {
@@ -24,10 +24,10 @@ void loop()
     digitalWrite(13, HIGH);
     Serial.println("Anduino is tilted");
   }
-    
+  delay(1000);
 }
 
 void tiltResponse()
 {
-  isLevel = !isLevel;
+  isLevel = digitalRead(inputPin);
 }
