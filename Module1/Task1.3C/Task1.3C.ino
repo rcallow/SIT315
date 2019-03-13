@@ -4,6 +4,8 @@ uint8_t outputPin = 13;
 
 volatile bool lengthIsLevel = 1;
 volatile bool widthIsLevel = 1;
+volatile bool lengthChangeDetected = 0;
+volatile bool widthChangeDetected = 0;
 
 void setup()
 {
