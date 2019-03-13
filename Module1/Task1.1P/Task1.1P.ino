@@ -33,6 +33,7 @@ void loop()
       Serial.println("LED off");
       Serial.println("Arduino is tilted");
     }
+    changeDetected = 0;
   }
-  delay(500);
+  delay(200);
 }
