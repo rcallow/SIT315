@@ -36,6 +36,10 @@ void loop()
       digitalWrite(lengthOutputPin, HIGH);
       Serial.println("Arduino length is tilted");
     }
+    lengthChangeDetected = 0;
+  }
+  if(widthChangeDetected)
+  {
     if(widthIsLevel)
     {
       digitalWrite(widthOutputPin, LOW);
@@ -46,11 +50,13 @@ void loop()
       digitalWrite(widthOutputPin, HIGH);
       Serial.println("Arduino width is tilted");
     }
+    widthChangeDetected = 0;
   }
 }
 
 void lengthTiltResponse()
 {
+  lengthChangeDetected = 1;
   lengthIsLevel = digitalRead(lengthTiltPin);
 }
 
