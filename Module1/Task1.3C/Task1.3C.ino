@@ -1,6 +1,7 @@
 uint8_t lengthTiltPin = 2;
 uint8_t widthTiltPin = 3;
-uint8_t outputPin = 13;
+uint8_t lengthOutputPin = 13;
+uint8_t widthOutputPin = 12;
 
 volatile bool lengthIsLevel = 1;
 volatile bool widthIsLevel = 1;
@@ -26,22 +27,22 @@ void loop()
   {
     if(lengthIsLevel)
     {
-      digitalWrite(outputPin, LOW);
+      digitalWrite(lengthOutputPin, LOW);
       Serial.println("Arduino length is level");
     }
     else
     {
-      digitalWrite(outputPin, HIGH);
+      digitalWrite(lengthOutputPin, HIGH);
       Serial.println("Arduino length is tilted");
     }
     if(widthIsLevel)
     {
-      digitalWrite(outputPin, LOW);
+      digitalWrite(widthOutputPin, LOW);
       Serial.println("Arduino width is level");
     }
     else
     {
-      digitalWrite(outputPin, HIGH);
+      digitalWrite(widthOutputPin, HIGH);
       Serial.println("Arduino width is tilted");
     }
   }
