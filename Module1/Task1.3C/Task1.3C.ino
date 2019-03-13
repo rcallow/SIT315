@@ -10,7 +10,8 @@ volatile bool widthChangeDetected = 0;
 
 void setup()
 {
-  pinMode(outputPin, OUTPUT);
+  pinMode(lengthOutputPin, OUTPUT);
+  pinMode(widthOutputPin, OUTPUT);
   pinMode(lengthTiltPin, INPUT);
   pinMode(widthTiltPin, INPUT);
   
@@ -48,12 +49,12 @@ void loop()
   }
 }
 
-void tiltOneResponse()
+void lengthTiltResponse()
 {
-  isLevel = digitalRead(tiltPinOne);
+  lengthIsLevel = digitalRead(lengthTiltPin);
 }
 
-void tiltTwoResponse()
+void widthTiltResponse()
 {
-  isLevel = digitalRead(tiltPinTwo);
+  widthIsLevel = digitalRead(widthTiltPin);
 }
