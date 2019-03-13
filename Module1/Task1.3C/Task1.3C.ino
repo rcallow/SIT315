@@ -62,5 +62,6 @@ void lengthTiltResponse()
 
 void widthTiltResponse()
 {
+  widthChangeDetected = 1;
   widthIsLevel = digitalRead(widthTiltPin);
 }
