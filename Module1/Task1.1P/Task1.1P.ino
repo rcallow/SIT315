@@ -1,7 +1,7 @@
 uint8_t inputPin = 2;
 uint8_t outputPin = 13;
 bool changeDetected = 0;
-bool isLevel = 0;
+bool isLevel = 1;
 
 void setup()
 {
@@ -13,25 +13,26 @@ void setup()
 
 void loop()
 {
-  isLevel = digitalRead(inputPin);
-
-  if(isLevel)
+  if(isLevel != digitalRead(inputPin))
   {
-    digitalWrite(13, HIGH);
-    Serial.println("LED on");
+    changeDetected = 1;
+    isLevel = digitalRead(inputPin);
   }
-  else
+  
+  if(changeDetected)
   {
-    digitalWrite(13, LOW);
-    Serial.println("LED off");
+    if(isLevel)
+    {
+      digitalWrite(13, HIGH);
+      Serial.println("LED on");
+      Serial.println("Arduino is not tilted");
+    }
+    else
+    {
+      digitalWrite(13, LOW);
+      Serial.println("LED off");
+      Serial.println("Arduino is tilted");
+    }
   }
-  if(isLevel)
-  {
-    Serial.print("Arduino is not tilted");
-  }
-  else
-  {
-    Serial.println("Arduino is tilted");
-  }
-  delay(1000);
+  delay(500);
 }
