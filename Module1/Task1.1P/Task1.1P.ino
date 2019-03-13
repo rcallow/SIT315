@@ -8,7 +8,7 @@ void setup()
   pinMode(outputPin, OUTPUT);
   pinMode(inputPin, INPUT);
   Serial.begin(9600);
-  Serial.println("Anduino tilt sensing started");
+  Serial.println("Arduino tilt sensing started");
 }
 
 void loop()
