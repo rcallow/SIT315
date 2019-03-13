@@ -17,22 +17,34 @@ void setup()
   attachInterrupt(digitalPinToInterrupt(widthTiltPin), widthTiltResponse, CHANGE);
   
   Serial.begin(9600);
-  Serial.println("Anduino tilt sensing started\n");
+  Serial.println("Arduino tilt sensing started\n");
 }
 
 void loop()
 {
-  if(isLevel)
+  if(lengthChangeDetected)
   {
-    digitalWrite(13, LOW);
-    Serial.println("Anduino is level");
+    if(lengthIsLevel)
+    {
+      digitalWrite(outputPin, LOW);
+      Serial.println("Arduino length is level");
+    }
+    else
+    {
+      digitalWrite(outputPin, HIGH);
+      Serial.println("Arduino length is tilted");
+    }
+    if(widthIsLevel)
+    {
+      digitalWrite(outputPin, LOW);
+      Serial.println("Arduino width is level");
+    }
+    else
+    {
+      digitalWrite(outputPin, HIGH);
+      Serial.println("Arduino width is tilted");
+    }
   }
-  else
-  {
-    digitalWrite(13, HIGH);
-    Serial.println("Anduino is tilted");
-  }
-  delay(1000);
 }
 
 void tiltOneResponse()
