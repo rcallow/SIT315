@@ -13,8 +13,10 @@ void setup()
 
 void loop()
 {
+  // Test whether the tilt sensor has detected a change
   if(isLevel != digitalRead(inputPin))
   {
+    // Record change in tilt status
     changeDetected = 1;
     isLevel = digitalRead(inputPin);
   }
@@ -23,17 +25,21 @@ void loop()
   {
     if(isLevel)
     {
+      // Turn on LED at pin 13
       digitalWrite(13, HIGH);
       Serial.println("LED on");
       Serial.println("Arduino is not tilted");
     }
     else
     {
+      // Turn off LED at pin 13
       digitalWrite(13, LOW);
       Serial.println("LED off");
       Serial.println("Arduino is tilted");
     }
+    // Reset change monitor
     changeDetected = 0;
   }
+  // Delay to reduce false readings
   delay(200);
 }
