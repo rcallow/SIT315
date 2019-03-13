@@ -1,14 +1,18 @@
-int tiltPinOne = 2;
-int tiltPinTwo = 3;
-volatile bool isLevel = 1;
+uint8_t lengthTiltPin = 2;
+uint8_t widthTiltPin = 3;
+uint8_t outputPin = 13;
+
+volatile bool lengthIsLevel = 1;
+volatile bool widthIsLevel = 1;
 
 void setup()
 {
-  pinMode(13, OUTPUT);
-  pinMode(tiltPinOne, INPUT);
+  pinMode(outputPin, OUTPUT);
+  pinMode(lengthTiltPin, INPUT);
+  pinMode(widthTiltPin, INPUT);
   
-  attachInterrupt(digitalPinToInterrupt(tiltPinOne), tiltOneResponse, CHANGE);
-  attachInterrupt(digitalPinToInterrupt(tiltPinTwo), tiltTwoResponse, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(lengthTiltPin), lengthTiltResponse, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(widthTiltPin), widthTiltResponse, CHANGE);
   
   Serial.begin(9600);
   Serial.println("Anduino tilt sensing started\n");
