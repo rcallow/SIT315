@@ -19,6 +19,7 @@ public:
 	~Matrix();
 	void fillMatrix();
 	int getValue(int row, int column);
+	void setValue(int row, int column, int value);
 };
 
 
@@ -50,4 +51,9 @@ void Matrix::fillMatrix()
 int Matrix::getValue(int row, int column)
 {
 	return matrix[row][column];
+}
+
+void Matrix::setValue(int row, int column, int value)
+{
+	matrix[row][column] = value;
 }
