@@ -4,7 +4,7 @@
 #include "pch.h"
 #include <iostream>
 #include <iomanip>
-#include "matrix.h"
+#include "Matrix.h"
 
 using namespace std;
 

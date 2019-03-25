@@ -1,1 +1,105 @@
-﻿
+﻿  pch.cpp
+  M2T1P.cpp
+  matrix.cpp
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(11): error C2011: 'Matrix': 'class' type redefinition
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.h(2): note: see declaration of 'Matrix'
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(25): error C2027: use of undefined type 'Matrix'
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.h(2): note: see declaration of 'Matrix'
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(26): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(27): error C2659: '=': function as left operand
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(28): error C2065: 'matrix': undeclared identifier
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(28): error C2440: '<function-style-cast>': cannot convert from 'overloaded-function' to 'std::vector<int,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=int
+          ]
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(28): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(29): warning C4508: '{ctor}': function should return a value; 'void' return type assumed
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(31): error C2027: use of undefined type 'Matrix'
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.h(2): note: see declaration of 'Matrix'
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(32): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(33): warning C4508: '{ctor}': function should return a value; 'void' return type assumed
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(35): error C2027: use of undefined type 'Matrix'
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.h(2): note: see declaration of 'Matrix'
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(36): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(37): warning C4508: '{dtor}': function should return a value; 'void' return type assumed
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(39): error C2027: use of undefined type 'Matrix'
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.h(2): note: see declaration of 'Matrix'
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(41): error C2563: mismatch in formal parameter list
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(41): error C2568: '<': unable to resolve function overload
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(41): note: could be 'size_t std::size(const _Ty (&)[_Size]) noexcept'
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(41): note: or       'unknown-type std::size(const _Container &)'
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(43): error C2563: mismatch in formal parameter list
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(43): error C2568: '<': unable to resolve function overload
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(43): note: could be 'size_t std::size(const _Ty (&)[_Size]) noexcept'
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(43): note: or       'unknown-type std::size(const _Container &)'
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(45): error C2065: 'matrix': undeclared identifier
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(50): error C2027: use of undefined type 'Matrix'
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.h(2): note: see declaration of 'Matrix'
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(52): error C2065: 'matrix': undeclared identifier
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(55): error C2027: use of undefined type 'Matrix'
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.h(2): note: see declaration of 'Matrix'
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(57): error C2065: 'matrix': undeclared identifier
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(60): error C2027: use of undefined type 'Matrix'
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.h(2): note: see declaration of 'Matrix'
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(62): error C2563: mismatch in formal parameter list
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(62): error C2568: '<': unable to resolve function overload
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(62): note: could be 'size_t std::size(const _Ty (&)[_Size]) noexcept'
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(62): note: or       'unknown-type std::size(const _Container &)'
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(64): error C2563: mismatch in formal parameter list
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(64): error C2568: '<': unable to resolve function overload
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(64): note: could be 'size_t std::size(const _Ty (&)[_Size]) noexcept'
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(64): note: or       'unknown-type std::size(const _Container &)'
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(66): error C2065: 'matrix': undeclared identifier
+  Test.cpp
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(11): error C2011: 'Test': 'class' type redefinition
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.h(2): note: see declaration of 'Test'
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(25): error C2027: use of undefined type 'Test'
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.h(2): note: see declaration of 'Test'
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(26): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(27): error C2659: '=': function as left operand
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(28): error C2065: 'matrix': undeclared identifier
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(28): error C2440: '<function-style-cast>': cannot convert from 'overloaded-function' to 'std::vector<int,std::allocator<_Ty>>'
+          with
+          [
+              _Ty=int
+          ]
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(28): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(29): warning C4508: '{ctor}': function should return a value; 'void' return type assumed
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(31): error C2027: use of undefined type 'Test'
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.h(2): note: see declaration of 'Test'
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(32): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(33): warning C4508: '{ctor}': function should return a value; 'void' return type assumed
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(35): error C2027: use of undefined type 'Test'
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.h(2): note: see declaration of 'Test'
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(36): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(37): warning C4508: '{dtor}': function should return a value; 'void' return type assumed
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(39): error C2027: use of undefined type 'Test'
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.h(2): note: see declaration of 'Test'
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(41): error C2563: mismatch in formal parameter list
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(41): error C2568: '<': unable to resolve function overload
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(41): note: could be 'size_t std::size(const _Ty (&)[_Size]) noexcept'
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(41): note: or       'unknown-type std::size(const _Container &)'
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(43): error C2563: mismatch in formal parameter list
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(43): error C2568: '<': unable to resolve function overload
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(43): note: could be 'size_t std::size(const _Ty (&)[_Size]) noexcept'
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(43): note: or       'unknown-type std::size(const _Container &)'
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(45): error C2065: 'matrix': undeclared identifier
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(50): error C2027: use of undefined type 'Test'
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.h(2): note: see declaration of 'Test'
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(52): error C2065: 'matrix': undeclared identifier
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(55): error C2027: use of undefined type 'Test'
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.h(2): note: see declaration of 'Test'
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(57): error C2065: 'matrix': undeclared identifier
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(60): error C2027: use of undefined type 'Test'
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.h(2): note: see declaration of 'Test'
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(62): error C2563: mismatch in formal parameter list
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(62): error C2568: '<': unable to resolve function overload
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(62): note: could be 'size_t std::size(const _Ty (&)[_Size]) noexcept'
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(62): note: or       'unknown-type std::size(const _Container &)'
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(64): error C2563: mismatch in formal parameter list
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(64): error C2568: '<': unable to resolve function overload
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(64): note: could be 'size_t std::size(const _Ty (&)[_Size]) noexcept'
+  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(64): note: or       'unknown-type std::size(const _Container &)'
+c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\test.cpp(66): error C2065: 'matrix': undeclared identifier
+  Generating Code...

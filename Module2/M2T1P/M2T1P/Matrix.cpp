@@ -9,11 +9,6 @@ using namespace std;
 
 class Matrix
 {
-private:
-	int size = 0;
-	vector<vector<int>> matrix;
-	
-
 public:
 	Matrix();
 	Matrix(int);
@@ -22,6 +17,8 @@ public:
 	int getValue(int row, int column);
 	void setValue(int row, int column, int value);
 	void printMatrix();
+	int size = 0;
+	vector<vector<int>> matrix;
 };
 
 
