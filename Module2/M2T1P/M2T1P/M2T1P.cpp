@@ -8,7 +8,7 @@
 
 using namespace std;
 
-const int N = 10;
+const int N = 2;
 
 int main()
 {
@@ -40,8 +40,8 @@ int main()
 	B.printMatrix();
 	cout << endl << endl << "Matrix C:" << endl << endl;
 	C.printMatrix();
-
+}
 //Output time here
 //Write output to file
-
+//Format output into columns
 //Add comments, error checking, exception handling
