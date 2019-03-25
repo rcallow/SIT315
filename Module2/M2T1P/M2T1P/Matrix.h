@@ -5,5 +5,6 @@ public:
 	Matrix();
 	Matrix(int);
 	virtual ~Matrix();
+	void fillMatrix();
 };
 

@@ -15,15 +15,7 @@ int main()
 	Matrix* A = new Matrix(N);
 	Matrix* B = new Matrix(N);
 	Matrix* C = new Matrix(N);
-//	for (int i = 0; i < N; i++)
-//	{
-//		for (int j = 0; j < N; j++)
-//		{
-//			A[i][j] = rand() % 100;
-//			cout << A[i][j];
-//		}
-//		cout << setw(5) << endl;
-//	}
+//	
 //	cout << endl;
 
 //	for (int i = 0; i < N; i++)
