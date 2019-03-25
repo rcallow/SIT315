@@ -42,6 +42,10 @@ int main()
 //		}
 //		cout << endl;
 //	}
+
+	delete[] A;
+	delete[] B;
+	delete[] C;
 }
 //For each value in row i of A, multiply by each value in column j of B, sum the results per column/row pair
 //First row in A, combined with column 1, 2, 3, etc in B makes the values for the first row of C. Second row makes second row of C, etc
