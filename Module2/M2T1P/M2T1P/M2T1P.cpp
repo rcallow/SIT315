@@ -27,7 +27,7 @@ int main()
 				for (int rowOfB = 0; rowOfB < N; rowOfB++)
 				{
 					int result = (*A).getValue(rowOfA, columnOfA) * (*B).getValue(rowOfB, columnOfB);
-					C[rowOfA][columnOfB] += result;
+					(*C).setValue(rowOfA, columnOfB, result);
 				}
 			}
 		}
