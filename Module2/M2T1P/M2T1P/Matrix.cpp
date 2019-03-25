@@ -18,7 +18,7 @@ public:
 	Matrix(int);
 	~Matrix();
 	void fillMatrix();
-	vector<vector<int>> getMatrix();
+	int getValue(int row, int column);
 };
 
 
@@ -47,7 +47,7 @@ void Matrix::fillMatrix()
 	}
 }
 
-vector<vector<int>> Matrix::getMatrix()
+int Matrix::getValue(int row, int column)
 {
-	return matrix;
+	return matrix[row][column];
 }

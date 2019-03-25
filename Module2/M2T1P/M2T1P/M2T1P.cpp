@@ -12,9 +12,9 @@ const int N = 10;
 
 int main()
 {
-	Matrix A = new Matrix(N);
-	Matrix B = new Matrix(N);
-	Matrix C = new Matrix(N);
+	Matrix *A = new Matrix(N);
+	Matrix *B = new Matrix(N);
+	Matrix *C = new Matrix(N);
 	//Start timing here
 
 
@@ -26,7 +26,7 @@ int main()
 			{
 				for (int rowOfB = 0; rowOfB < N; rowOfB++)
 				{
-					int result = A.getMatrix()[rowOfA][columnOfA] * B[rowOfB][columnOfB];
+					int result = (*A).getValue(rowOfA, columnOfA) * B[rowOfB][columnOfB];
 					C[rowOfA][columnOfB] += result;
 				}
 			}

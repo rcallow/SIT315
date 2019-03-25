@@ -7,5 +7,6 @@ public:
 	virtual ~Matrix();
 	void fillMatrix();
 	vector<vector<int>> getMatrix();
+	int getValue(int row, int column);
 };
 
