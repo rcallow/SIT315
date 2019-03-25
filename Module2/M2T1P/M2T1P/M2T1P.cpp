@@ -15,28 +15,6 @@ int main()
 	Matrix* A = new Matrix(N);
 	Matrix* B = new Matrix(N);
 	Matrix* C = new Matrix(N);
-//	
-//	cout << endl;
-
-//	for (int i = 0; i < N; i++)
-//	{
-//		for (int j = 0; j < N; j++)
-//		{
-//			B[i][j] = rand() % 100;
-//			cout << B[i][j];
-//		}
-//		cout << endl;
-//	}
-//	cout << endl;
-//
-//	for (int i = 0; i < N; i++)
-//	{
-//		for (int j = 0; j < N; j++)
-//		{
-//			C[i][j] = 0;
-//		}
-//	}
-//
 	//Start timing here
 
 
