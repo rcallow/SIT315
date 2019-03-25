@@ -33,6 +33,13 @@ int main()
 		}
 	}
 
+	cout << "Matrix A:" << endl << endl;
+	(*A).printMatrix();
+	cout << endl << endl << "Matrix B:" << endl << endl;
+	(*B).printMatrix();
+	cout << endl << endl << "Matrix C:" << endl << endl;
+	(*C).printMatrix();
+
 
 //	for (int i = 0; i < N; i++)
 //	{

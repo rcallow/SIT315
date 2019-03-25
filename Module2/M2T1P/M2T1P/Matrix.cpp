@@ -2,6 +2,7 @@
 #include "Matrix.h"
 #include <vector>
 #include <iomanip>
+#include <iostream>
 
 using namespace std;
 
@@ -20,6 +21,7 @@ public:
 	void fillMatrix();
 	int getValue(int row, int column);
 	void setValue(int row, int column, int value);
+	void printMatrix();
 };
 
 
@@ -56,4 +58,16 @@ int Matrix::getValue(int row, int column)
 void Matrix::setValue(int row, int column, int value)
 {
 	matrix[row][column] = value;
+}
+
+void Matrix::printMatrix()
+{
+	for (int i = 0; i < size; i++)
+	{
+		for (int j = 0; j < size; j++)
+		{
+			cout << matrix[i][j];
+		}
+		cout << endl;
+	}
 }
