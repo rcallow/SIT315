@@ -7,25 +7,27 @@
 using namespace std;
 
 
-class Matrix
-{
-public:
-	Matrix();
-	Matrix(int);
-	~Matrix();
-	void fillMatrix();
-	int getValue(int row, int column);
-	void setValue(int row, int column, int value);
-	void printMatrix();
-	int size = 0;
-	vector<vector<int>> matrix;
-};
+//class Matrix
+//{
+//public:
+//	Matrix();
+//	Matrix(int);
+//	~Matrix();
+//	void fillMatrix();
+//	int getValue(int row, int column);
+//	void setValue(int row, int column, int value);
+//	void printMatrix();
+//	int size = 0;
+//	vector<vector<int>> matrix;
+//};
+int matrixSize = 0;
+vector<vector<int>> matrix;
 
 
-Matrix::Matrix(int matrixSize)
+Matrix::Matrix(int newSize)
 {
-	size = matrixSize;
-	matrix.resize(size, vector<int>(size));
+	matrixSize = newSize;
+	matrix.resize(matrixSize, vector<int>(matrixSize));
 }
 
 Matrix::Matrix()
@@ -38,9 +40,9 @@ Matrix::~Matrix()
 
 void Matrix::fillMatrix()
 {
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < matrixSize; i++)
 	{
-		for (int j = 0; j < size; j++)
+		for (int j = 0; j < matrixSize; j++)
 		{
 			matrix[i][j] = rand() % 100;
 		}
@@ -59,9 +61,9 @@ void Matrix::setValue(int row, int column, int value)
 
 void Matrix::printMatrix()
 {
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < matrixSize; i++)
 	{
-		for (int j = 0; j < size; j++)
+		for (int j = 0; j < matrixSize; j++)
 		{
 			cout << matrix[i][j];
 		}
