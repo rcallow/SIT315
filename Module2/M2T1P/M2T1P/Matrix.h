@@ -6,5 +6,6 @@ public:
 	Matrix(int);
 	virtual ~Matrix();
 	void fillMatrix();
+	vector<vector<int>> getMatrix();
 };
 

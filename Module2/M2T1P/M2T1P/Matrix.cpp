@@ -18,6 +18,7 @@ public:
 	Matrix(int);
 	~Matrix();
 	void fillMatrix();
+	vector<vector<int>> getMatrix();
 };
 
 
@@ -44,4 +45,9 @@ void Matrix::fillMatrix()
 			matrix[i][j] = rand() % 100;
 		}
 	}
+}
+
+vector<vector<int>> Matrix::getMatrix()
+{
+	return matrix;
 }

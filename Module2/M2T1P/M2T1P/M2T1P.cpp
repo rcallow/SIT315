@@ -26,7 +26,7 @@ int main()
 			{
 				for (int rowOfB = 0; rowOfB < N; rowOfB++)
 				{
-					int result = A[rowOfA][columnOfA] * B[rowOfB][columnOfB];
+					int result = A.matrix[rowOfA][columnOfA] * B[rowOfB][columnOfB];
 					C[rowOfA][columnOfB] += result;
 				}
 			}
