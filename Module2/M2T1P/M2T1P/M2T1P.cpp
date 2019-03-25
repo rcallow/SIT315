@@ -41,21 +41,7 @@ int main()
 	cout << endl << endl << "Matrix C:" << endl << endl;
 	C.printMatrix();
 
-
-//	for (int i = 0; i < N; i++)
-//	{
-//		for (int j = 0; j < N; j++)
-//		{
-//			cout << C[i][j];
-//		}
-//		cout << endl;
-//	}
-
-}
-//For each value in row i of A, multiply by each value in column j of B, sum the results per column/row pair
-//First row in A, combined with column 1, 2, 3, etc in B makes the values for the first row of C. Second row makes second row of C, etc
 //Output time here
 //Write output to file
 
-//Write function to initialize arrays
 //Add comments, error checking, exception handling

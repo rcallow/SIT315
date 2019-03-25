@@ -7,23 +7,6 @@
 using namespace std;
 
 
-//class Matrix
-//{
-//public:
-//	Matrix();
-//	Matrix(int);
-//	~Matrix();
-//	void fillMatrix();
-//	int getValue(int row, int column);
-//	void setValue(int row, int column, int value);
-//	void printMatrix();
-//	int size = 0;
-//	vector<vector<int>> matrix;
-//};
-int matrixSize = 0;
-vector<vector<int>> matrix(matrixSize);
-
-
 Matrix::Matrix(int newSize)
 {
 	matrixSize = newSize;
