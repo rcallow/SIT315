@@ -12,9 +12,9 @@ const int N = 10;
 
 int main()
 {
-	Matrix* A = new Matrix(N);
-	Matrix* B = new Matrix(N);
-	Matrix* C = new Matrix(N);
+	Matrix A = new Matrix(N);
+	Matrix B = new Matrix(N);
+	Matrix C = new Matrix(N);
 	//Start timing here
 
 
@@ -26,7 +26,7 @@ int main()
 			{
 				for (int rowOfB = 0; rowOfB < N; rowOfB++)
 				{
-					int result = A.matrix[rowOfA][columnOfA] * B[rowOfB][columnOfB];
+					int result = A.getMatrix()[rowOfA][columnOfA] * B[rowOfB][columnOfB];
 					C[rowOfA][columnOfB] += result;
 				}
 			}
@@ -43,9 +43,6 @@ int main()
 //		cout << endl;
 //	}
 
-	delete[] A;
-	delete[] B;
-	delete[] C;
 }
 //For each value in row i of A, multiply by each value in column j of B, sum the results per column/row pair
 //First row in A, combined with column 1, 2, 3, etc in B makes the values for the first row of C. Second row makes second row of C, etc

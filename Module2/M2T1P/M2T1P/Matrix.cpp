@@ -10,10 +10,10 @@ class Matrix
 {
 private:
 	int size = 0;
+	vector<vector<int>> matrix;
 	
 
 public:
-	vector<vector<int>> matrix;
 	Matrix();
 	Matrix(int);
 	~Matrix();
