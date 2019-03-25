@@ -28,6 +28,7 @@ Matrix::Matrix(int newSize)
 {
 	matrixSize = newSize;
 	matrix.resize(matrixSize, vector<int>(matrixSize));
+	fillMatrix();
 }
 
 Matrix::Matrix()
@@ -44,7 +45,8 @@ void Matrix::fillMatrix()
 	{
 		for (int j = 0; j < matrixSize; j++)
 		{
-			matrix[i][j] = rand() % 100;
+			matrix[i].push_back(rand() % 100);
+			//matrix[0][0] = rand() % 100;
 		}
 	}
 }
@@ -56,6 +58,7 @@ int Matrix::getValue(int row, int column)
 
 void Matrix::setValue(int row, int column, int value)
 {
+	//matrix.insert()
 	matrix[row][column] = value;
 }
 

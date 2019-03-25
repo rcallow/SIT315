@@ -1,24 +1,2 @@
-﻿  pch.cpp
-  M2T1P.cpp
-  matrix.cpp
-c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(29): error C2872: 'size': ambiguous symbol
-  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(23): note: could be 'int size'
-  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(29): note: or       'size'
-c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(30): error C2872: 'size': ambiguous symbol
-  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(23): note: could be 'int size'
-  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(30): note: or       'size'
-c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(43): error C2872: 'size': ambiguous symbol
-  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(23): note: could be 'int size'
-  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(43): note: or       'size'
-c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(45): error C2872: 'size': ambiguous symbol
-  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(23): note: could be 'int size'
-  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(45): note: or       'size'
-c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(64): error C2872: 'size': ambiguous symbol
-  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(23): note: could be 'int size'
-  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(64): note: or       'size'
-c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(66): error C2872: 'size': ambiguous symbol
-  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(23): note: could be 'int size'
-  c:\users\rcall\desktop\deakin\2019_t1\sit315\portfolio tasks\gitrepo\sit315\module2\m2t1p\m2t1p\matrix.cpp(66): note: or       'size'
-  Test.cpp
-c1xx : fatal error C1083: Cannot open source file: 'Test.cpp': No such file or directory
-  Generating Code...
+﻿  matrix.cpp
+  M2T1P.vcxproj -> C:\Users\rcall\Desktop\DEAKIN\2019_T1\SIT315\PORTFOLIO TASKS\GITREPO\SIT315\Module2\M2T1P\Debug\M2T1P.exe
