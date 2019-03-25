@@ -18,20 +18,20 @@ int main()
 	//Start timing here
 
 
-//	for (int rowOfA = 0; rowOfA < N; rowOfA++)
-//	{
-//		for (int columnOfA = 0; columnOfA < N; columnOfA++)
-//		{
-//			for (int columnOfB = 0; columnOfB < N; columnOfB++)
-//			{
-//				for (int rowOfB = 0; rowOfB < N; rowOfB++)
-//				{
-//					int result = A[rowOfA][columnOfA] * B[rowOfB][columnOfB];
-//					C[rowOfA][columnOfB] += result;
-//				}
-//			}
-//		}
-//	}
+	for (int rowOfA = 0; rowOfA < N; rowOfA++)
+	{
+		for (int columnOfA = 0; columnOfA < N; columnOfA++)
+		{
+			for (int columnOfB = 0; columnOfB < N; columnOfB++)
+			{
+				for (int rowOfB = 0; rowOfB < N; rowOfB++)
+				{
+					int result = A[rowOfA][columnOfA] * B[rowOfB][columnOfB];
+					C[rowOfA][columnOfB] += result;
+				}
+			}
+		}
+	}
 
 
 //	for (int i = 0; i < N; i++)

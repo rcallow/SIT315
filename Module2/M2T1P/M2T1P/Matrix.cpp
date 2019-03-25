@@ -1,15 +1,19 @@
 #include "pch.h"
 #include "Matrix.h"
+#include <vector>
 #include <iomanip>
+
+using namespace std;
 
 
 class Matrix
 {
 private:
 	int size = 0;
-	int** matrix = 0;
+	
 
 public:
+	vector<vector<int>> matrix;
 	Matrix();
 	Matrix(int);
 	~Matrix();
@@ -20,9 +24,7 @@ public:
 Matrix::Matrix(int matrixSize)
 {
 	size = matrixSize;
-	matrix = new int*[matrixSize];
-	for (int i = 0; i < matrixSize; i++)
-		matrix[i] = new int[matrixSize];
+	matrix.resize(size, vector<int>(size));
 }
 
 Matrix::Matrix()
