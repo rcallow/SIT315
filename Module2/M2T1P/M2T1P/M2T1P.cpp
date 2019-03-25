@@ -12,9 +12,10 @@ const int N = 10;
 
 int main()
 {
-	Matrix *A = new Matrix(N);
-	Matrix *B = new Matrix(N);
-	Matrix *C = new Matrix(N);
+	Matrix A = Matrix(N);
+	Matrix B = Matrix(N);
+	Matrix C = Matrix(N);
+
 	//Start timing here
 
 
@@ -26,19 +27,19 @@ int main()
 			{
 				for (int rowOfB = 0; rowOfB < N; rowOfB++)
 				{
-					int result = (*A).getValue(rowOfA, columnOfA) * (*B).getValue(rowOfB, columnOfB);
-					(*C).setValue(rowOfA, columnOfB, result);
+					int result = A.getValue(rowOfA, columnOfA) * B.getValue(rowOfB, columnOfB);
+					C.setValue(rowOfA, columnOfB, result);
 				}
 			}
 		}
 	}
 
 	cout << "Matrix A:" << endl << endl;
-	(*A).printMatrix();
+	A.printMatrix();
 	cout << endl << endl << "Matrix B:" << endl << endl;
-	(*B).printMatrix();
+	B.printMatrix();
 	cout << endl << endl << "Matrix C:" << endl << endl;
-	(*C).printMatrix();
+	C.printMatrix();
 
 
 //	for (int i = 0; i < N; i++)
