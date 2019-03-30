@@ -48,7 +48,7 @@ void loop()
   {
     if(widthIsLevel)
     {
-      // Turn on blue LED
+      // Turn off blue LED
       digitalWrite(widthOutputPin, LOW);
       Serial.println("Arduino width is level");
     }
