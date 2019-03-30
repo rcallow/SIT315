@@ -6,7 +6,7 @@ class Matrix
 {
 public:
 	int matrixSize = 0;
-	vector<vector<int>> matrix;
+	vector<vector<int> > matrix;
 
 	Matrix();
 	Matrix(int);

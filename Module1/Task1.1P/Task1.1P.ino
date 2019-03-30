@@ -7,6 +7,8 @@ void setup()
 {
   pinMode(outputPin, OUTPUT);
   pinMode(inputPin, INPUT);
+
+  // Start serial output
   Serial.begin(9600);
   Serial.println("Arduino tilt sensing started");
 }
@@ -40,6 +42,7 @@ void loop()
     // Reset change monitor
     changeDetected = 0;
   }
+  
   // Delay to reduce false readings
   delay(200);
 }

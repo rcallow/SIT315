@@ -4,3 +4,6 @@
 *.opensdf
 *.sdf
 *.cachefile
+/Module2/M2T1P_V2/build/
+/Module2/M2T1P_V2/dist/
+/.project
