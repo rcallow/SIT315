@@ -11,7 +11,8 @@ void setup()
 
   // Attach external interrupt to the data pin
   attachInterrupt(digitalPinToInterrupt(inputPin), tiltResponse, CHANGE);
-  
+
+  // Start serial output
   Serial.begin(9600);
   Serial.println("Arduino tilt sensing started");
 }
