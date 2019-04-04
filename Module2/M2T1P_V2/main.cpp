@@ -13,7 +13,7 @@ int main()
 {
 	Matrix A = Matrix(N);
 	Matrix B = Matrix(N);
-	Matrix C = Matrix(N);
+	Matrix C = Matrix(N)
 
 	//Start timing here
 
