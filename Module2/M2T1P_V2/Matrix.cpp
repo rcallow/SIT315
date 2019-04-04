@@ -28,7 +28,7 @@ void Matrix::fillMatrix()
 	{
 		for (int j = 0; j < matrixSize; j++)
 		{
-			matrix[i][j] = rand() % 4;
+			matrix[i][j] = rand() % 100;
 		}
 	}
 }
@@ -49,7 +49,7 @@ void Matrix::printMatrix()
 	{
 		for (int j = 0; j < matrixSize; j++)
 		{
-			cout << setw(3) << matrix[i][j];
+			cout << setw(10) << matrix[i][j];
 		}
 		cout << endl;
 	}

@@ -7,7 +7,7 @@
 
 using namespace std;
 
-const int N = 2;
+const int N = 10;
 
 int main()
 {
@@ -18,15 +18,16 @@ int main()
     //Start timing here
 
 
-    for (int rowOfA = 0; rowOfA < N; rowOfA++)
+    for (int rowOfA = 0; rowOfA < N; ++rowOfA)
     {
-        for (int columnOfB = 0; columnOfB < N; columnOfB++)
+        for (int columnOfB = 0; columnOfB < N; ++columnOfB)
         {
-            for (int i = 0; i < N; i++)
+            int result = 0;
+            for (int i = 0; i < N; ++i)
             {
-                int result = A.getValue(rowOfA, i) * B.getValue(i, columnOfB);
-                C.setValue(rowOfA, columnOfB, result);			
+                result = result + A.getValue(rowOfA, i) * B.getValue(i, columnOfB);		
             }
+            C.setValue(rowOfA, columnOfB, result);	
 	}
     }
 
