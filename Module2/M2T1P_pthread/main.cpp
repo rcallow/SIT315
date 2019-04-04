@@ -5,24 +5,43 @@
 #include <iomanip>
 #include "Matrix.h"
 #include "time.h"
-#include<stdio.h>
+#include <stdio.h>
+#include <pthread.h>
 
 using namespace std;
 
 const int N = 470;
+const int NUMBER_OF_THREADS = 2;
+
+
+void *MultiplyPartMatrices(void *id)
+{
+   int threadId = (int)id;
+ 
+   pthread_exit(NULL);
+}
+
+
 
 int main()
 {
+    pthread_t threads[NUMBER_OF_THREADS];
     Matrix A = Matrix(N);
     Matrix B = Matrix(N);
     Matrix C = Matrix(N);
     
+    int remainder = 0;
+    int rowsPerThread = 0;
     double time_elapsed = 0.0;
 
     //Start timing here
     //measuring time -- using clock
     long clock_start = clock();
 
+    remainder = N % NUMBER_OF_THREADS;
+    NUMBER_OF_THREADS -= remainder;
+    rowsPerThread = N / NUMBER_OF_THREADS;
+    
     for (int rowOfA = 0; rowOfA < N; ++rowOfA)
     {
         for (int columnOfB = 0; columnOfB < N; ++columnOfB)
