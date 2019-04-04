@@ -10,17 +10,19 @@
 
 using namespace std;
 
-const int N = 470;
 const int NUMBER_OF_THREADS = 2;
+
+int N = 470;
 int rowsPerThread = 0;
 Matrix A;
 Matrix B;
-Matrix C;
 
 
 void *MultiplyPartMatrices(void *id)
 {
-    int threadId = (int)id;
+    vector<vector<int> > partMatrixC;
+    partMatrixC.resize(rowsPerThread, vector<int>(N));
+    int threadId = (long)id;
     for (int rowOfA = rowsPerThread * threadId; rowOfA < (rowsPerThread * threadId + rowsPerThread); ++rowOfA)
     {
         for (int columnOfB = 0; columnOfB < N; ++columnOfB)
@@ -30,9 +32,10 @@ void *MultiplyPartMatrices(void *id)
             {
                 result = result + A.getValue(rowOfA, i) * B.getValue(i, columnOfB);		
             }
-            C.setValue(rowOfA, columnOfB, result);	
+            partMatrixC[rowOfA][columnOfB] = result;	
 	}
     }
+    cout << "thread finished: " << threadId;
    pthread_exit(NULL);
 }
 
@@ -43,7 +46,6 @@ int main()
     pthread_t threads[NUMBER_OF_THREADS];
     A = Matrix(N);
     B = Matrix(N);
-    C = Matrix(N);
     
     int remainder = 0;
     double time_elapsed = 0.0;
@@ -56,9 +58,7 @@ int main()
     N -= remainder;
     rowsPerThread = N / NUMBER_OF_THREADS;
     
-    pthread_t threads[NUMBER_OF_THREADS];
- 
-    for (int i = 0 ; i < NUMBER_OF_THREADS ; ++i)
+    for (long int i = 0 ; i < NUMBER_OF_THREADS ; ++i)
     {
         int errorCheck = pthread_create(&threads[i], NULL, MultiplyPartMatrices, (void*)i);
          if (errorCheck != 0)
