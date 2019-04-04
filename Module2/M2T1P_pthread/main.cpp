@@ -56,17 +56,15 @@ int main()
     N -= remainder;
     rowsPerThread = N / NUMBER_OF_THREADS;
     
-    for (int rowOfA = 0; rowOfA < N; ++rowOfA)
+    pthread_t threads[NUMBER_OF_THREADS];
+ 
+    for (int i = 0 ; i < NUMBER_OF_THREADS ; ++i)
     {
-        for (int columnOfB = 0; columnOfB < N; ++columnOfB)
+        int errorCheck = pthread_create(&threads[i], NULL, MultiplyPartMatrices, (void*)i);
+         if (errorCheck != 0)
         {
-            int result = 0;
-            for (int i = 0; i < N; ++i)
-            {
-                result = result + A.getValue(rowOfA, i) * B.getValue(i, columnOfB);		
-            }
-            C.setValue(rowOfA, columnOfB, result);	
-	}
+            cout << "Thread creation failed. Error code: " << errorCheck << endl;
+        }
     }
     
     long clock_end = clock();
