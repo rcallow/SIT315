@@ -11,33 +11,31 @@ const int N = 2;
 
 int main()
 {
-	Matrix A = Matrix(N);
-	Matrix B = Matrix(N);
-	Matrix C = Matrix(N);
+    Matrix A = Matrix(N);
+    Matrix B = Matrix(N);
+    Matrix C = Matrix(N);
 
-	//Start timing here
+    //Start timing here
 
 
-	for (int rowOfA = 0; rowOfA < N; rowOfA++)
-	{
-		for (int columnOfB = 0; columnOfB < N; columnOfB++)
-		{
-			for (int i = 0; i < N; i++)
-			{
-				
-					int result = A.getValue(rowOfA, i) * B.getValue(i, columnOfB);
-					C.setValue(rowOfA, columnOfB, result);
-				
-			}
-		}
+    for (int rowOfA = 0; rowOfA < N; rowOfA++)
+    {
+        for (int columnOfB = 0; columnOfB < N; columnOfB++)
+        {
+            for (int i = 0; i < N; i++)
+            {
+                int result = A.getValue(rowOfA, i) * B.getValue(i, columnOfB);
+                C.setValue(rowOfA, columnOfB, result);			
+            }
 	}
+    }
 
-	cout << "Matrix A:" << endl << endl;
-	A.printMatrix();
-	cout << endl << endl << "Matrix B:" << endl << endl;
-	B.printMatrix();
-	cout << endl << endl << "Matrix C:" << endl << endl;
-	C.printMatrix();
+    cout << "Matrix A:" << endl << endl;
+    A.printMatrix();
+    cout << endl << endl << "Matrix B:" << endl << endl;
+    B.printMatrix();
+    cout << endl << endl << "Matrix C:" << endl << endl;
+    C.printMatrix();
 }
 //Output time here
 //Write output to file
