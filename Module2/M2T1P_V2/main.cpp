@@ -13,22 +13,21 @@ int main()
 {
 	Matrix A = Matrix(N);
 	Matrix B = Matrix(N);
-	Matrix C = Matrix(N)
+	Matrix C = Matrix(N);
 
 	//Start timing here
 
 
 	for (int rowOfA = 0; rowOfA < N; rowOfA++)
 	{
-		for (int columnOfA = 0; columnOfA < N; columnOfA++)
+		for (int columnOfB = 0; columnOfB < N; columnOfB++)
 		{
-			for (int columnOfB = 0; columnOfB < N; columnOfB++)
+			for (int i = 0; i < N; i++)
 			{
-				for (int rowOfB = 0; rowOfB < N; rowOfB++)
-				{
-					int result = A.getValue(rowOfA, columnOfA) * B.getValue(rowOfB, columnOfB);
+				
+					int result = A.getValue(rowOfA, i) * B.getValue(i, columnOfB);
 					C.setValue(rowOfA, columnOfB, result);
-				}
+				
 			}
 		}
 	}
