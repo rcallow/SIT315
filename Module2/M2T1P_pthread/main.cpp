@@ -12,16 +12,17 @@ using namespace std;
 
 const int NUMBER_OF_THREADS = 2;
 
-int N = 10;
+int N = 2;
 int rowsPerThread = 0;
 Matrix A;
 Matrix B;
+Matrix C;
+pthread_mutex_t threadMutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t coutMutex = PTHREAD_MUTEX_INITIALIZER;
 
 
 void *MultiplyPartMatrices(void *id)
 {
-    vector<vector<int> > partMatrixC;
-    partMatrixC.resize(rowsPerThread, vector<int>(N));
     int threadId = (long)id;
     for (int rowOfA = rowsPerThread * threadId; rowOfA < (rowsPerThread * threadId + rowsPerThread); ++rowOfA)
     {
@@ -32,10 +33,15 @@ void *MultiplyPartMatrices(void *id)
             {
                 result = result + A.getValue(rowOfA, i) * B.getValue(i, columnOfB);		
             }
-            partMatrixC[rowOfA][columnOfB] = result;	
+            pthread_mutex_lock(&threadMutex);
+            C.setValue(rowOfA, columnOfB, result);	
+            pthread_mutex_unlock(&threadMutex);
+            
 	}
     }
+    pthread_mutex_lock(&coutMutex);
     cout << "thread finished: " << threadId;
+    pthread_mutex_unlock(&coutMutex);
    pthread_exit(NULL);
 }
 
@@ -46,6 +52,7 @@ int main()
     pthread_t threads[NUMBER_OF_THREADS];
     A = Matrix(N);
     B = Matrix(N);
+    C = Matrix(N);
     
     int remainder = 0;
     double time_elapsed = 0.0;
@@ -63,7 +70,9 @@ int main()
         int errorCheck = pthread_create(&threads[i], NULL, MultiplyPartMatrices, (void*)i);
          if (errorCheck != 0)
         {
+             pthread_mutex_lock(&coutMutex);
             cout << "Thread creation failed. Error code: " << errorCheck << endl;
+            pthread_mutex_unlock(&coutMutex);
         }
     }
     
@@ -72,7 +81,9 @@ int main()
         int errorCheck = pthread_join (threads[i], NULL);
                  if (errorCheck != 0)
         {
+                     pthread_mutex_lock(&coutMutex);
             cout << "Thread join failed. Error code: " << errorCheck << endl;
+            pthread_mutex_unlock(&coutMutex);
         }
     }
     
@@ -82,9 +93,14 @@ int main()
     printf("Time elapsed: %.2f\n", time_elapsed);
     cout << "Matrix A:" << endl << endl;
     A.printMatrix();
-//    cout << endl << endl << "Matrix B:" << endl << endl;
-//    B.printMatrix();
-//    cout << endl << endl << "Matrix C:" << endl << endl;
-//    C.printMatrix();
+    
+    cout << endl << endl << "Matrix B:" << endl << endl;
+    B.printMatrix();
+    cout << endl << endl << "Matrix C:" << endl << endl;
+    C.printMatrix();
+    
+    pthread_mutex_destroy(&threadMutex);
+    pthread_mutex_destroy(&coutMutex);
+    pthread_exit(NULL);
 
 }
