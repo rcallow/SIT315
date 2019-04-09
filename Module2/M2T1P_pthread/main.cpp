@@ -141,5 +141,25 @@ int main()
     }
    
         long clock_end = clock();  
+    time_elapsed = (clock_end - clock_start) / CLOCKS_PER_SEC;
 
+    printf("Time elapsed: %.2f\n", time_elapsed);
+   
+        gettimeofday(&timecheck, NULL);
+    long timeofday_end = (long)timecheck.tv_sec * 1000 + (long)timecheck.tv_usec / 1000;
+   
+    time_elapsed_sys = (timeofday_end - timeofday_start)/1000;
+    printf("Sys time elapsed %.2f\n", time_elapsed_sys);
+   
+//                    cout << endl << endl << "Matrix C: " << endl;
+  //      for (int i = 0; i < pow(MATRIX_SIZE_TWO_D, 2); i++)
+    //    {
+      //      if(i%MATRIX_SIZE_TWO_D == 0)
+        //    {
+          //      cout << endl;
+            //}
+           // cout << vectorC[i];
+       // }
+    pthread_mutex_destroy(&testMutex);
+    pthread_mutex_destroy(&writeMutex);
 }
