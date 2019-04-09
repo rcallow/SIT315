@@ -9,6 +9,7 @@
 #include <pthread.h>
 #include <vector>
 
+
 using namespace std;
 
 const int NUMBER_OF_THREADS = 2;
@@ -16,31 +17,35 @@ const int NUMBER_OF_THREADS = 2;
 int N = 10;
 int rowsPerThread = 0;
 const int MATRIX_SIZE_TWO_D = 5;
-const int NUMBER_OF_THREADS = 2;
 vector<int> vectorA(pow(MATRIX_SIZE_TWO_D, 2));
 vector<int> vectorB(pow(MATRIX_SIZE_TWO_D, 2));
 vector<int> vectorC(pow(MATRIX_SIZE_TWO_D, 2));
+const int ROWSPERTHREAD = int(MATRIX_SIZE_TWO_D/NUMBER_OF_THREADS);
+
 
 
 void *MultiplyPartMatrices(void *id)
 {
-    vector<vector<int> > partMatrixC;
-    partMatrixC.resize(rowsPerThread, vector<int>(N));
     int threadId = (long)id;
-    for (int rowOfA = rowsPerThread * threadId; rowOfA < (rowsPerThread * threadId + rowsPerThread); ++rowOfA)
+   
+    if(threadId == NUMBER_OF_THREADS - 1)
     {
-        for (int columnOfB = 0; columnOfB < N; ++columnOfB)
+            for (int rowOfA = ROWSPERTHREAD * threadId; rowOfA < (ROWSPERTHREAD * threadId + ROWSPERTHREAD + extraRows); ++rowOfA)
+    {
+        for (int columnOfB = 0; columnOfB < MATRIX_SIZE_TWO_D; ++columnOfB)
         {
             int result = 0;
-            for (int i = 0; i < N; ++i)
+            for (int i = 0; i < MATRIX_SIZE_TWO_D; ++i)
             {
-                result = result + A.getValue(rowOfA, i) * B.getValue(i, columnOfB);		
+                result = result + twoDConvertGet(rowOfA, i, vectorA) * twoDConvertGet(i, columnOfB, vectorB);
             }
-            partMatrixC[rowOfA][columnOfB] = result;	
-	}
+            pthread_mutex_lock(&writeMutex);
+            vectorC[MATRIX_SIZE_TWO_D * rowOfA + columnOfB] = result;
+            pthread_mutex_unlock(&writeMutex);
+           
     }
-    cout << "thread finished: " << threadId;
-   pthread_exit(NULL);
+    }
+    }
 }
 
 
