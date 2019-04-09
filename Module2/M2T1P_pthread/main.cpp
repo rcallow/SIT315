@@ -23,13 +23,10 @@ const int NUMBER_OF_THREADS = 2;
 
 int N = 2;
 int rowsPerThread = 0;
-const int MATRIX_SIZE = 5;
-//vector<int> vectorA(pow(MATRIX_SIZE_TWO_D, 2));
-//vector<int> vectorB(pow(MATRIX_SIZE_TWO_D, 2));
-//vector<int> vectorC(pow(MATRIX_SIZE_TWO_D, 2));
-vector<int <vector<int>> vectorA(MATRIX_SIZE,MATRIX_SIZE);
-vector<int <vector<int>> vectorB(MATRIX_SIZE,MATRIX_SIZE);
-vector<int <vector<int>> vectorC(MATRIX_SIZE,MATRIX_SIZE);
+const int MATRIX_SIZE = 4;
+int vectorA[MATRIX_SIZE][MATRIX_SIZE];
+int vectorB[MATRIX_SIZE][MATRIX_SIZE];
+int vectorC[MATRIX_SIZE][MATRIX_SIZE];
 const int ROWSPERTHREAD = int(MATRIX_SIZE/NUMBER_OF_THREADS);
 volatile int extraRows = MATRIX_SIZE%NUMBER_OF_THREADS;
 pthread_mutex_t testMutex = PTHREAD_MUTEX_INITIALIZER;
@@ -85,13 +82,6 @@ void *MultiplyPartMatrices(void *id)
 
 
 
-//int twoDConvertGet(int row, int column, vector<int> matrix)
-//{
- //   return matrix[MATRIX_SIZE * row + column];
-//}
-
-
-
 int main()
 {
        double time_elapsed = 0.0;
@@ -104,7 +94,6 @@ int main()
 
        
         srand (time (0));
- //       cout << pow(MATRIX_SIZE_TWO_D, 2);
     for (int i = 0; i < MATRIX_SIZE; i++)
         {
         for (int j = 0; j < MATRIX_SIZE; j++)
@@ -122,11 +111,6 @@ int main()
                 cout << vectorA[i][j];
             }
             cout << endl;
-            //if(i%MATRIX_SIZE == 0)
-            //{
-             //   cout << endl;
-            //}
-            //cout << vectorA[i];
         }
        
                 cout << endl << endl << "Before loop B: " << endl;
@@ -137,11 +121,6 @@ int main()
                 cout << vectorB[i][j];
             }
             cout << endl;
-            //if(i%MATRIX_SIZE_TWO_D == 0)
-            //{
-            //    cout << endl;
-            //}
-            //cout << vectorB[i];
        }
                
                 cout << endl <<  endl;
@@ -179,15 +158,15 @@ int main()
     time_elapsed_sys = (timeofday_end - timeofday_start)/1000;
     printf("Sys time elapsed %.2f\n", time_elapsed_sys);
    
-//                    cout << endl << endl << "Matrix C: " << endl;
-  //      for (int i = 0; i < pow(MATRIX_SIZE_TWO_D, 2); i++)
-    //    {
-      //      if(i%MATRIX_SIZE_TWO_D == 0)
-        //    {
-          //      cout << endl;
-            //}
-           // cout << vectorC[i];
-       // }
+                    cout << endl << endl << "Matrix C: " << endl;
+  for (int i = 0; i < MATRIX_SIZE; i++)
+        {
+            for (int j = 0; j < MATRIX_SIZE; j++)
+            {
+                cout << vectorC[i][j];
+            }
+            cout << endl;
+       }
     pthread_mutex_destroy(&testMutex);
     pthread_mutex_destroy(&writeMutex);
 }
