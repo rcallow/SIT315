@@ -19,19 +19,17 @@
 
 using namespace std;
 
-const int NUMBER_OF_THREADS = 2;
+const int NUMBER_OF_THREADS = 4;
 
 int N = 2;
 int rowsPerThread = 0;
-const int MATRIX_SIZE = 4;
-int vectorA[MATRIX_SIZE][MATRIX_SIZE];
-int vectorB[MATRIX_SIZE][MATRIX_SIZE];
-int vectorC[MATRIX_SIZE][MATRIX_SIZE];
-const int ROWSPERTHREAD = int(MATRIX_SIZE/NUMBER_OF_THREADS);
+const int MATRIX_SIZE = 2000;
+int matrixA[MATRIX_SIZE][MATRIX_SIZE];
+int matrixB[MATRIX_SIZE][MATRIX_SIZE];
+int matrixC[MATRIX_SIZE][MATRIX_SIZE];
+const int ROWS_PER_THREAD = int(MATRIX_SIZE/NUMBER_OF_THREADS);
 volatile int extraRows = MATRIX_SIZE%NUMBER_OF_THREADS;
-pthread_mutex_t testMutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t writeMutex = PTHREAD_MUTEX_INITIALIZER;
-int twoDConvertGet(int row, int column, vector<int> matrix);
 
 
 
@@ -41,17 +39,17 @@ void *MultiplyPartMatrices(void *id)
    
     if(threadId == NUMBER_OF_THREADS - 1)
     {
-            for (int rowOfA = ROWSPERTHREAD * threadId; rowOfA < (ROWSPERTHREAD * threadId + ROWSPERTHREAD + extraRows); ++rowOfA)
+            for (int rowOfA = ROWS_PER_THREAD * threadId; rowOfA < (ROWS_PER_THREAD * threadId + ROWS_PER_THREAD + extraRows); ++rowOfA)
     {
         for (int columnOfB = 0; columnOfB < MATRIX_SIZE; ++columnOfB)
         {
             int result = 0;
             for (int i = 0; i < MATRIX_SIZE; ++i)
             {
-                result = result + vectorA[rowOfA][i] * vectorB[i][columnOfB];
+                result = result + matrixA[rowOfA][i] * matrixB[i][columnOfB];
             }
             pthread_mutex_lock(&writeMutex);
-            vectorC[rowOfA][columnOfB] = result;
+            matrixC[rowOfA][columnOfB] = result;
             pthread_mutex_unlock(&writeMutex);
            
     }
@@ -59,17 +57,17 @@ void *MultiplyPartMatrices(void *id)
     }
         else
     {
-    for (int rowOfA = ROWSPERTHREAD * threadId; rowOfA < (ROWSPERTHREAD * threadId + ROWSPERTHREAD); ++rowOfA)
+    for (int rowOfA = ROWS_PER_THREAD * threadId; rowOfA < (ROWS_PER_THREAD * threadId + ROWS_PER_THREAD); ++rowOfA)
     {
         for (int columnOfB = 0; columnOfB < MATRIX_SIZE; ++columnOfB)
         {
             int result = 0;
             for (int i = 0; i < MATRIX_SIZE; ++i)
             {
-                result = result + vectorA[rowOfA][i] * vectorB[i][columnOfB];
+                result = result + matrixA[rowOfA][i] * matrixB[i][columnOfB];
             }
             pthread_mutex_lock(&writeMutex);
-            vectorC[rowOfA][columnOfB] = result;
+            matrixC[rowOfA][columnOfB] = result;
             pthread_mutex_unlock(&writeMutex);
            
     }
@@ -84,7 +82,7 @@ void *MultiplyPartMatrices(void *id)
 
 int main()
 {
-       double time_elapsed = 0.0;
+      // double time_elapsed = 0.0;
         double time_elapsed_sys = 0.0;
        
          struct timeval timecheck;
@@ -98,8 +96,8 @@ int main()
         {
         for (int j = 0; j < MATRIX_SIZE; j++)
         {
-            vectorA[i][j] = rand() % 4;
-            vectorB[i][j] = rand() % 4;
+            matrixA[i][j] = rand() % 4;
+            matrixB[i][j] = rand() % 4;
         }
     }
     
@@ -108,9 +106,9 @@ int main()
         {
             for (int j = 0; j < MATRIX_SIZE; j++)
             {
-                cout << vectorA[i][j];
+               // cout << matrixA[i][j];
             }
-            cout << endl;
+         //   cout << endl;
         }
        
                 cout << endl << endl << "Before loop B: " << endl;
@@ -118,9 +116,9 @@ int main()
         {
             for (int j = 0; j < MATRIX_SIZE; j++)
             {
-                cout << vectorB[i][j];
+               // cout << matrixB[i][j];
             }
-            cout << endl;
+          //  cout << endl;
        }
                
                 cout << endl <<  endl;
@@ -147,26 +145,25 @@ int main()
         }
     }
    
-        long clock_end = clock();  
-    time_elapsed = (clock_end - clock_start) / CLOCKS_PER_SEC;
+    //    long clock_end = clock();  
+    //time_elapsed = (clock_end - clock_start) / CLOCKS_PER_SEC;
 
-    printf("Time elapsed: %.2f\n", time_elapsed);
+    //printf("Time elapsed: %.2f\n", time_elapsed);
    
         gettimeofday(&timecheck, NULL);
     long timeofday_end = (long)timecheck.tv_sec * 1000 + (long)timecheck.tv_usec / 1000;
    
     time_elapsed_sys = (timeofday_end - timeofday_start)/1000;
-    printf("Sys time elapsed %.2f\n", time_elapsed_sys);
+    printf("Sys time elapsed %.4f\n", time_elapsed_sys);
    
                     cout << endl << endl << "Matrix C: " << endl;
   for (int i = 0; i < MATRIX_SIZE; i++)
         {
             for (int j = 0; j < MATRIX_SIZE; j++)
             {
-                cout << vectorC[i][j];
+             //   cout << matrixC[i][j];
             }
-            cout << endl;
+          //  cout << endl;
        }
-    pthread_mutex_destroy(&testMutex);
     pthread_mutex_destroy(&writeMutex);
 }
