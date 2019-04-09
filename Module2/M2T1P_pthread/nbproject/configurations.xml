@@ -38,7 +38,7 @@
       </toolsSet>
       <compileType>
         <ccTool>
-          <commandLine>-pthread</commandLine>
+          <commandLine>-pthread -std=c++11 -std=gnu++11</commandLine>
         </ccTool>
       </compileType>
       <item path="Matrix.cpp" ex="false" tool="1" flavor2="0">

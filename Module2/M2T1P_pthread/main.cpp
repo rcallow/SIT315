@@ -21,7 +21,7 @@ using namespace std;
 
 const int NUMBER_OF_THREADS = 2;
 
-int N = 10;
+int N = 2;
 int rowsPerThread = 0;
 const int MATRIX_SIZE_TWO_D = 5;
 vector<int> vectorA(pow(MATRIX_SIZE_TWO_D, 2));
@@ -74,8 +74,9 @@ void *MultiplyPartMatrices(void *id)
            
     }
     }
+
     }
-    cout << "thread finished: " << threadId;
+    cout << "thread finished: " << threadId << endl << endl;
    pthread_exit(NULL);
 }
 
