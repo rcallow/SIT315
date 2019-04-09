@@ -23,12 +23,15 @@ const int NUMBER_OF_THREADS = 2;
 
 int N = 2;
 int rowsPerThread = 0;
-const int MATRIX_SIZE_TWO_D = 5;
-vector<int> vectorA(pow(MATRIX_SIZE_TWO_D, 2));
-vector<int> vectorB(pow(MATRIX_SIZE_TWO_D, 2));
-vector<int> vectorC(pow(MATRIX_SIZE_TWO_D, 2));
-const int ROWSPERTHREAD = int(MATRIX_SIZE_TWO_D/NUMBER_OF_THREADS);
-volatile int extraRows = MATRIX_SIZE_TWO_D%NUMBER_OF_THREADS;
+const int MATRIX_SIZE = 5;
+//vector<int> vectorA(pow(MATRIX_SIZE_TWO_D, 2));
+//vector<int> vectorB(pow(MATRIX_SIZE_TWO_D, 2));
+//vector<int> vectorC(pow(MATRIX_SIZE_TWO_D, 2));
+vector<int <vector<int>> vectorA(MATRIX_SIZE,MATRIX_SIZE);
+vector<int <vector<int>> vectorB(MATRIX_SIZE,MATRIX_SIZE);
+vector<int <vector<int>> vectorC(MATRIX_SIZE,MATRIX_SIZE);
+const int ROWSPERTHREAD = int(MATRIX_SIZE/NUMBER_OF_THREADS);
+volatile int extraRows = MATRIX_SIZE%NUMBER_OF_THREADS;
 pthread_mutex_t testMutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t writeMutex = PTHREAD_MUTEX_INITIALIZER;
 int twoDConvertGet(int row, int column, vector<int> matrix);
@@ -43,15 +46,15 @@ void *MultiplyPartMatrices(void *id)
     {
             for (int rowOfA = ROWSPERTHREAD * threadId; rowOfA < (ROWSPERTHREAD * threadId + ROWSPERTHREAD + extraRows); ++rowOfA)
     {
-        for (int columnOfB = 0; columnOfB < MATRIX_SIZE_TWO_D; ++columnOfB)
+        for (int columnOfB = 0; columnOfB < MATRIX_SIZE; ++columnOfB)
         {
             int result = 0;
-            for (int i = 0; i < MATRIX_SIZE_TWO_D; ++i)
+            for (int i = 0; i < MATRIX_SIZE; ++i)
             {
-                result = result + twoDConvertGet(rowOfA, i, vectorA) * twoDConvertGet(i, columnOfB, vectorB);
+                result = result + vectorA[rowOfA][i] * vectorB[i][columnOfB];
             }
             pthread_mutex_lock(&writeMutex);
-            vectorC[MATRIX_SIZE_TWO_D * rowOfA + columnOfB] = result;
+            vectorC[rowOfA][columnOfB] = result;
             pthread_mutex_unlock(&writeMutex);
            
     }
@@ -61,15 +64,15 @@ void *MultiplyPartMatrices(void *id)
     {
     for (int rowOfA = ROWSPERTHREAD * threadId; rowOfA < (ROWSPERTHREAD * threadId + ROWSPERTHREAD); ++rowOfA)
     {
-        for (int columnOfB = 0; columnOfB < MATRIX_SIZE_TWO_D; ++columnOfB)
+        for (int columnOfB = 0; columnOfB < MATRIX_SIZE; ++columnOfB)
         {
             int result = 0;
-            for (int i = 0; i < MATRIX_SIZE_TWO_D; ++i)
+            for (int i = 0; i < MATRIX_SIZE; ++i)
             {
-                result = result + twoDConvertGet(rowOfA, i, vectorA) * twoDConvertGet(i, columnOfB, vectorB);
+                result = result + vectorA[rowOfA][i] * vectorB[i][columnOfB];
             }
             pthread_mutex_lock(&writeMutex);
-            vectorC[MATRIX_SIZE_TWO_D * rowOfA + columnOfB] = result;
+            vectorC[rowOfA][columnOfB] = result;
             pthread_mutex_unlock(&writeMutex);
            
     }
@@ -82,10 +85,10 @@ void *MultiplyPartMatrices(void *id)
 
 
 
-int twoDConvertGet(int row, int column, vector<int> matrix)
-{
-    return matrix[MATRIX_SIZE_TWO_D * row + column];
-}
+//int twoDConvertGet(int row, int column, vector<int> matrix)
+//{
+ //   return matrix[MATRIX_SIZE * row + column];
+//}
 
 
 
@@ -102,30 +105,43 @@ int main()
        
         srand (time (0));
  //       cout << pow(MATRIX_SIZE_TWO_D, 2);
-    for (int i = 0; i < pow(MATRIX_SIZE_TWO_D, 2); ++i)
+    for (int i = 0; i < MATRIX_SIZE; i++)
         {
-            vectorA[i] = rand() % 4;
-            vectorB[i] = rand() % 4;
+        for (int j = 0; j < MATRIX_SIZE; j++)
+        {
+            vectorA[i][j] = rand() % 4;
+            vectorB[i][j] = rand() % 4;
+        }
     }
     
          cout << endl << endl << "Before loop A: " << endl;
-        for (int i = 0; i < pow(MATRIX_SIZE_TWO_D, 2); i++)
+        for (int i = 0; i < MATRIX_SIZE; i++)
         {
-            if(i%MATRIX_SIZE_TWO_D == 0)
+            for (int j = 0; j < MATRIX_SIZE; j++)
             {
-                cout << endl;
+                cout << vectorA[i][j];
             }
-            cout << vectorA[i];
+            cout << endl;
+            //if(i%MATRIX_SIZE == 0)
+            //{
+             //   cout << endl;
+            //}
+            //cout << vectorA[i];
         }
        
                 cout << endl << endl << "Before loop B: " << endl;
-        for (int i = 0; i < pow(MATRIX_SIZE_TWO_D, 2); i++)
+        for (int i = 0; i < MATRIX_SIZE; i++)
         {
-            if(i%MATRIX_SIZE_TWO_D == 0)
+            for (int j = 0; j < MATRIX_SIZE; j++)
             {
-                cout << endl;
+                cout << vectorB[i][j];
             }
-            cout << vectorB[i];
+            cout << endl;
+            //if(i%MATRIX_SIZE_TWO_D == 0)
+            //{
+            //    cout << endl;
+            //}
+            //cout << vectorB[i];
        }
                
                 cout << endl <<  endl;
