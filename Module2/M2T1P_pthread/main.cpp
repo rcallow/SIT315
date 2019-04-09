@@ -120,6 +120,26 @@ int main()
        
                     long clock_start = clock();
                     
-                    
+                   pthread_t threads[NUMBER_OF_THREADS];
+   
+    for (long int i = 0; i < NUMBER_OF_THREADS; ++i)
+    {
+        int errorCheck = pthread_create(&threads[i], NULL, MultiplyPartMatrices, (void*)i);
+         if (errorCheck != 0)
+        {
+            cout << "Thread creation failed. Error code: " << errorCheck << endl;
+        }
+    }
+   
+    for (long int i = 0; i < NUMBER_OF_THREADS; ++i)
+    {
+        int errorCheck = pthread_join (threads[i], NULL);
+                 if (errorCheck != 0)
+        {
+            cout << "Thread join failed. Error code: " << errorCheck << endl;
+        }
+    }
+   
+        long clock_end = clock();  
 
 }
