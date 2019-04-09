@@ -96,33 +96,30 @@ int main()
             vectorB[i] = rand() % 4;
     }
     
-    for (long int i = 0; i < NUMBER_OF_THREADS; ++i)
-    {
-        int errorCheck = pthread_create(&threads[i], NULL, MultiplyPartMatrices, (void*)i);
-         if (errorCheck != 0)
+         cout << endl << endl << "Before loop A: " << endl;
+        for (int i = 0; i < pow(MATRIX_SIZE_TWO_D, 2); i++)
         {
-            cout << "Thread creation failed. Error code: " << errorCheck << endl;
+            if(i%MATRIX_SIZE_TWO_D == 0)
+            {
+                cout << endl;
+            }
+            cout << vectorA[i];
         }
-    }
-    
-    for (long int i = 0; i < NUMBER_OF_THREADS; ++i)
-    {
-        int errorCheck = pthread_join (threads[i], NULL);
-                 if (errorCheck != 0)
+       
+                cout << endl << endl << "Before loop B: " << endl;
+        for (int i = 0; i < pow(MATRIX_SIZE_TWO_D, 2); i++)
         {
-            cout << "Thread join failed. Error code: " << errorCheck << endl;
-        }
-    }
-    
-    long clock_end = clock();
-    time_elapsed = (clock_end - clock_start) / CLOCKS_PER_SEC;
-
-    printf("Time elapsed: %.2f\n", time_elapsed);
-    cout << "Matrix A:" << endl << endl;
-    A.printMatrix();
-//    cout << endl << endl << "Matrix B:" << endl << endl;
-//    B.printMatrix();
-//    cout << endl << endl << "Matrix C:" << endl << endl;
-//    C.printMatrix();
+            if(i%MATRIX_SIZE_TWO_D == 0)
+            {
+                cout << endl;
+            }
+            cout << vectorB[i];
+       }
+               
+                cout << endl <<  endl;
+       
+                    long clock_start = clock();
+                    
+                    
 
 }
