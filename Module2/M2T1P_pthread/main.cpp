@@ -46,26 +46,55 @@ void *MultiplyPartMatrices(void *id)
     }
     }
     }
+        else
+    {
+    for (int rowOfA = ROWSPERTHREAD * threadId; rowOfA < (ROWSPERTHREAD * threadId + ROWSPERTHREAD); ++rowOfA)
+    {
+        for (int columnOfB = 0; columnOfB < MATRIX_SIZE_TWO_D; ++columnOfB)
+        {
+            int result = 0;
+            for (int i = 0; i < MATRIX_SIZE_TWO_D; ++i)
+            {
+                result = result + twoDConvertGet(rowOfA, i, vectorA) * twoDConvertGet(i, columnOfB, vectorB);
+            }
+            pthread_mutex_lock(&writeMutex);
+            vectorC[MATRIX_SIZE_TWO_D * rowOfA + columnOfB] = result;
+            pthread_mutex_unlock(&writeMutex);
+           
+    }
+    }
+    }
+    cout << "thread finished: " << threadId;
+   pthread_exit(NULL);
+}
+
+
+
+int twoDConvertGet(int row, int column, vector<int> matrix)
+{
+    return matrix[MATRIX_SIZE_TWO_D * row + column];
 }
 
 
 
 int main()
 {
-    pthread_t threads[NUMBER_OF_THREADS];
-    A = Matrix(N);
-    B = Matrix(N);
-    
-    int remainder = 0;
-    double time_elapsed = 0.0;
+       double time_elapsed = 0.0;
+        double time_elapsed_sys = 0.0;
+       
+         struct timeval timecheck;
+        gettimeofday(&timecheck, NULL);
+        long timeofday_start = (long)timecheck.tv_sec * 1000 + (long)timecheck.tv_usec / 1000;
 
-    //Start timing here
-    //measuring time -- using clock
-    long clock_start = clock();
 
-    remainder = N % NUMBER_OF_THREADS;
-    N -= remainder;
-    rowsPerThread = N / NUMBER_OF_THREADS;
+       
+        srand (time (0));
+ //       cout << pow(MATRIX_SIZE_TWO_D, 2);
+    for (int i = 0; i < pow(MATRIX_SIZE_TWO_D, 2); ++i)
+        {
+            vectorA[i] = rand() % 4;
+            vectorB[i] = rand() % 4;
+    }
     
     for (long int i = 0; i < NUMBER_OF_THREADS; ++i)
     {
