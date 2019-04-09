@@ -4,15 +4,17 @@
 #include <iostream>
 #include <stdio.h>
 #include <sys/time.h>
+#include <fstream>
 
 using namespace std;
 
 
-const int MATRIX_SIZE = 800;
+const int MATRIX_SIZE = 10;
 
 int matrixA[MATRIX_SIZE][MATRIX_SIZE];
 int matrixB[MATRIX_SIZE][MATRIX_SIZE];
 int matrixC[MATRIX_SIZE][MATRIX_SIZE];
+ofstream matrixFile;
 
 
 
@@ -30,28 +32,29 @@ int main()
         }
     }
 
+    matrixFile.open ("matrix.txt");
 
-    cout << endl << endl << "Before loop A: " << endl;
+    matrixFile << endl << endl << "Matrix A: " << endl;
     for (int i = 0; i < MATRIX_SIZE; i++)
     {
         for (int j = 0; j < MATRIX_SIZE; j++)
         {
-            //    cout << matrixA[i][j];
+            matrixFile << matrixA[i][j];
         }
-        //  cout << endl;
+        matrixFile << endl;
     }
        
-    cout << endl << endl << "Before loop B: " << endl;
+    matrixFile << endl << endl << "Matrix B: " << endl;
     for (int i = 0; i < MATRIX_SIZE; i++)
     {
         for (int j = 0; j < MATRIX_SIZE; j++)
         {
-            //    cout << matrixB[i][j];
+            matrixFile << matrixB[i][j];
         }
-        //cout << endl;
+        matrixFile << endl;
     }
                
-    cout << endl <<  endl;
+    matrixFile << endl <<  endl;
     
     
     struct timeval timecheck;
@@ -78,13 +81,15 @@ int main()
     time_elapsed = (timeofday_end - timeofday_start)/1000;
     printf("Time elapsed %.4f\n", time_elapsed);
    
-    cout << endl << endl << "Matrix C: " << endl;
+    matrixFile << endl << endl << "Matrix C: " << endl;
     for (int i = 0; i < MATRIX_SIZE; i++)
     {
         for (int j = 0; j < MATRIX_SIZE; j++)
         {
-            //   cout << matrixC[i][j];
+            matrixFile << matrixC[i][j];
         }
-        //  cout << endl;
+        matrixFile << endl;
     }
+    
+    matrixFile.close();
 }
