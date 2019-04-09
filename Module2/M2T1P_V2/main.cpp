@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include <iomanip>
 #include <stdio.h>
 #include <sys/time.h>
 #include <fstream>
@@ -9,7 +10,7 @@
 using namespace std;
 
 
-const int MATRIX_SIZE = 10;
+const int MATRIX_SIZE = 1000;
 
 int matrixA[MATRIX_SIZE][MATRIX_SIZE];
 int matrixB[MATRIX_SIZE][MATRIX_SIZE];
@@ -27,8 +28,8 @@ int main()
         {
         for (int j = 0; j < MATRIX_SIZE; j++)
         {
-            matrixA[i][j] = rand() % 4;
-            matrixB[i][j] = rand() % 4;
+            matrixA[i][j] = rand() % 100;
+            matrixB[i][j] = rand() % 100;
         }
     }
 
@@ -39,9 +40,9 @@ int main()
     {
         for (int j = 0; j < MATRIX_SIZE; j++)
         {
-            matrixFile << matrixA[i][j];
+           // matrixFile << setw(5) << matrixA[i][j];
         }
-        matrixFile << endl;
+       // matrixFile << endl;
     }
        
     matrixFile << endl << endl << "Matrix B: " << endl;
@@ -49,9 +50,9 @@ int main()
     {
         for (int j = 0; j < MATRIX_SIZE; j++)
         {
-            matrixFile << matrixB[i][j];
+         //   matrixFile << setw(5) << matrixB[i][j];
         }
-        matrixFile << endl;
+     //   matrixFile << endl;
     }
                
     matrixFile << endl <<  endl;
@@ -79,16 +80,17 @@ int main()
     long timeofday_end = (long)timecheck.tv_sec * 1000 + (long)timecheck.tv_usec / 1000;
    
     time_elapsed = (timeofday_end - timeofday_start)/1000;
-    printf("Time elapsed %.4f\n", time_elapsed);
+   // printf("Time elapsed %.4f\n", time_elapsed);
+    matrixFile << fixed << setprecision(4) << time_elapsed << endl;
    
     matrixFile << endl << endl << "Matrix C: " << endl;
     for (int i = 0; i < MATRIX_SIZE; i++)
     {
         for (int j = 0; j < MATRIX_SIZE; j++)
         {
-            matrixFile << matrixC[i][j];
+         //   matrixFile << setw(8) << matrixC[i][j];
         }
-        matrixFile << endl;
+       // matrixFile << endl;
     }
     
     matrixFile.close();
