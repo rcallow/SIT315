@@ -21,6 +21,10 @@ vector<int> vectorA(pow(MATRIX_SIZE_TWO_D, 2));
 vector<int> vectorB(pow(MATRIX_SIZE_TWO_D, 2));
 vector<int> vectorC(pow(MATRIX_SIZE_TWO_D, 2));
 const int ROWSPERTHREAD = int(MATRIX_SIZE_TWO_D/NUMBER_OF_THREADS);
+volatile int extraRows = MATRIX_SIZE_TWO_D%NUMBER_OF_THREADS;
+pthread_mutex_t testMutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t writeMutex = PTHREAD_MUTEX_INITIALIZER;
+int twoDConvertGet(int row, int column, vector<int> matrix);
 
 
 
