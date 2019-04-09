@@ -14,8 +14,11 @@ const int NUMBER_OF_THREADS = 2;
 
 int N = 10;
 int rowsPerThread = 0;
-Matrix A;
-Matrix B;
+const int MATRIX_SIZE_TWO_D = 5;
+const int NUMBER_OF_THREADS = 2;
+vector<int> vectorA(pow(MATRIX_SIZE_TWO_D, 2));
+vector<int> vectorB(pow(MATRIX_SIZE_TWO_D, 2));
+vector<int> vectorC(pow(MATRIX_SIZE_TWO_D, 2));
 
 
 void *MultiplyPartMatrices(void *id)
