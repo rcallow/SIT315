@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
@@ -11,7 +12,7 @@ Matrix::Matrix(int newSize)
 {
 	matrixSize = newSize;
 	matrix.resize(matrixSize, vector<int>(matrixSize));
-	fillMatrix();
+	matrix.clear();
 }
 
 Matrix::Matrix()
@@ -24,11 +25,12 @@ Matrix::~Matrix()
 
 void Matrix::fillMatrix()
 {
+    srand (time (0));
 	for (int i = 0; i < matrixSize; i++)
 	{
 		for (int j = 0; j < matrixSize; j++)
 		{
-			matrix[i][j] = rand() % 100;
+			matrix[i][j] = rand() % 4;
 		}
 	}
 }

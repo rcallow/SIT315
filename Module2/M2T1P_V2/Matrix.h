@@ -9,7 +9,7 @@ class Matrix
 {
 public:
 	int matrixSize = 0;
-	vector<vector<int> > matrix;
+	volatile vector<vector<int> > matrix;
 
 	Matrix();
 	Matrix(int);

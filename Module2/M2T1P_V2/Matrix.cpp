@@ -12,7 +12,7 @@ Matrix::Matrix(int newSize)
 {
 	matrixSize = newSize;
 	matrix.resize(matrixSize, vector<int>(matrixSize));
-	fillMatrix();
+	matrix.clear();
 }
 
 Matrix::Matrix()

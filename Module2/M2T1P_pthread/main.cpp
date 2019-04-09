@@ -14,11 +14,13 @@ const int NUMBER_OF_THREADS = 2;
 
 int N = 2;
 int rowsPerThread = 0;
-Matrix A;
-Matrix B;
-Matrix C;
+Matrix A = Matrix(N);
+Matrix B = Matrix(N);
+Matrix C = Matrix(N);
 pthread_mutex_t threadMutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t coutMutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t matrixWriteMutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t testMutex = PTHREAD_MUTEX_INITIALIZER;
 
 
 void *MultiplyPartMatrices(void *id)
@@ -31,7 +33,11 @@ void *MultiplyPartMatrices(void *id)
             int result = 0;
             for (int i = 0; i < N; ++i)
             {
-                result = result + A.getValue(rowOfA, i) * B.getValue(i, columnOfB);		
+                pthread_mutex_lock(&testMutex);
+                cout << "thread ID: " << threadId << endl;
+                cout << "row of a: " << rowOfA << "column of b: " << columnOfB << "result: " << result << endl;
+                result = result + A.getValue(rowOfA, i) * B.getValue(i, columnOfB);
+                pthread_mutex_unlock(&testMutex);
             }
             pthread_mutex_lock(&threadMutex);
             C.setValue(rowOfA, columnOfB, result);	
@@ -40,7 +46,7 @@ void *MultiplyPartMatrices(void *id)
 	}
     }
     pthread_mutex_lock(&coutMutex);
-    cout << "thread finished: " << threadId;
+    cout << "thread finished: " << threadId << endl << endl;
     pthread_mutex_unlock(&coutMutex);
    pthread_exit(NULL);
 }
@@ -50,12 +56,13 @@ void *MultiplyPartMatrices(void *id)
 int main()
 {
     pthread_t threads[NUMBER_OF_THREADS];
-    A = Matrix(N);
-    B = Matrix(N);
-    C = Matrix(N);
     
     int remainder = 0;
     double time_elapsed = 0.0;
+    pthread_mutex_lock(&matrixWriteMutex);
+    A.fillMatrix();
+    B.fillMatrix();
+    pthread_mutex_unlock(&matrixWriteMutex);
 
     //Start timing here
     //measuring time -- using clock
@@ -101,6 +108,8 @@ int main()
     
     pthread_mutex_destroy(&threadMutex);
     pthread_mutex_destroy(&coutMutex);
+    pthread_mutex_destroy(&matrixWriteMutex);
+    pthread_mutex_destroy(&testMutex);
     pthread_exit(NULL);
 
 }
