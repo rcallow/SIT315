@@ -8,6 +8,13 @@
 #include <stdio.h>
 #include <pthread.h>
 #include <vector>
+#include <ctime>
+#include <cstdlib>
+#include<cmath>
+#include <sys/time.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <thread>
 
 
 using namespace std;
